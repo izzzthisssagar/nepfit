@@ -100,31 +100,35 @@ export default function DashboardPage() {
       </div>
 
       {/* Main Calories Card */}
-      <Card className="bg-gradient-to-br from-primary-500 to-primary-600 text-white border-0">
-        <div className="text-center py-4">
-          <p className="text-primary-100 mb-2">Remaining Calories</p>
-          <div className="text-5xl font-bold mb-1">{remaining}</div>
+      <Card gradient="primary" padding="lg" className="relative overflow-hidden">
+        {/* Decorative circles */}
+        <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full" />
+        <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-white/10 rounded-full" />
+
+        <div className="relative text-center py-4">
+          <p className="text-primary-100 mb-2 text-sm uppercase tracking-wide">Remaining Calories</p>
+          <div className="text-6xl font-bold mb-2 animate-count">{remaining}</div>
           <p className="text-primary-100 text-sm">
             {consumed.calories} eaten · {dailyTargets.dailyCalories} goal
           </p>
 
           {/* Macro Summary */}
-          <div className="mt-6 flex justify-center gap-8">
-            <div className="text-center">
+          <div className="mt-8 grid grid-cols-4 gap-4">
+            <div className="text-center bg-white/10 rounded-xl py-3 px-2">
               <div className="text-2xl font-bold">{caloriePercent}%</div>
-              <div className="text-xs text-primary-100">Calories</div>
+              <div className="text-xs text-primary-100 mt-1">Calories</div>
             </div>
-            <div className="text-center">
+            <div className="text-center bg-white/10 rounded-xl py-3 px-2">
               <div className="text-2xl font-bold">{proteinPercent}%</div>
-              <div className="text-xs text-primary-100">Protein</div>
+              <div className="text-xs text-primary-100 mt-1">Protein</div>
             </div>
-            <div className="text-center">
+            <div className="text-center bg-white/10 rounded-xl py-3 px-2">
               <div className="text-2xl font-bold">{carbsPercent}%</div>
-              <div className="text-xs text-primary-100">Carbs</div>
+              <div className="text-xs text-primary-100 mt-1">Carbs</div>
             </div>
-            <div className="text-center">
+            <div className="text-center bg-white/10 rounded-xl py-3 px-2">
               <div className="text-2xl font-bold">{fatPercent}%</div>
-              <div className="text-xs text-primary-100">Fat</div>
+              <div className="text-xs text-primary-100 mt-1">Fat</div>
             </div>
           </div>
         </div>

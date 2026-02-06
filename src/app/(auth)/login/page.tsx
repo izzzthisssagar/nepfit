@@ -57,8 +57,12 @@ export default function LoginPage() {
   };
 
   return (
-    <Card className="w-full max-w-md" padding="lg">
+    <Card className="w-full max-w-md" padding="xl" elevated>
       <div className="text-center mb-8">
+        {/* Logo */}
+        <div className="w-16 h-16 bg-primary-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+          <span className="text-white font-bold text-2xl">N</span>
+        </div>
         <h1 className="text-2xl font-bold text-neutral-900 mb-2">
           Welcome Back
         </h1>
