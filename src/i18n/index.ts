@@ -5,12 +5,15 @@ import { persist } from "zustand/middleware";
 import en from "./messages/en.json";
 import ne from "./messages/ne.json";
 import hi from "./messages/hi.json";
+import bn from "./messages/bn.json";
+import ur from "./messages/ur.json";
+import si from "./messages/si.json";
 
 // ==========================================
 // Types
 // ==========================================
 
-export type Locale = "en" | "ne" | "hi";
+export type Locale = "en" | "ne" | "hi" | "bn" | "ur" | "si";
 
 export interface Language {
   code: Locale;
@@ -24,6 +27,9 @@ export const LANGUAGES: Language[] = [
   { code: "en", name: "English", nativeName: "English", flag: "🇺🇸", direction: "ltr" },
   { code: "ne", name: "Nepali", nativeName: "नेपाली", flag: "🇳🇵", direction: "ltr" },
   { code: "hi", name: "Hindi", nativeName: "हिन्दी", flag: "🇮🇳", direction: "ltr" },
+  { code: "bn", name: "Bengali", nativeName: "বাংলা", flag: "🇧🇩", direction: "ltr" },
+  { code: "ur", name: "Urdu", nativeName: "اردو", flag: "🇵🇰", direction: "rtl" },
+  { code: "si", name: "Sinhala", nativeName: "සිංහල", flag: "🇱🇰", direction: "ltr" },
 ];
 
 // ==========================================
@@ -34,6 +40,9 @@ const messages: Record<Locale, typeof en> = {
   en,
   ne,
   hi,
+  bn,
+  ur,
+  si,
 };
 
 // ==========================================
@@ -129,6 +138,9 @@ export function formatNumber(num: number, locale: Locale = "en"): string {
     en: "en-US",
     ne: "ne-NP",
     hi: "hi-IN",
+    bn: "bn-BD",
+    ur: "ur-PK",
+    si: "si-LK",
   };
   return new Intl.NumberFormat(localeMap[locale]).format(num);
 }
@@ -138,6 +150,9 @@ export function formatDate(date: Date, locale: Locale = "en"): string {
     en: "en-US",
     ne: "ne-NP",
     hi: "hi-IN",
+    bn: "bn-BD",
+    ur: "ur-PK",
+    si: "si-LK",
   };
   return new Intl.DateTimeFormat(localeMap[locale], {
     year: "numeric",
@@ -151,6 +166,9 @@ export function formatCurrency(amount: number, locale: Locale = "en"): string {
     en: { locale: "en-IN", currency: "INR" },
     ne: { locale: "ne-NP", currency: "NPR" },
     hi: { locale: "hi-IN", currency: "INR" },
+    bn: { locale: "bn-BD", currency: "BDT" },
+    ur: { locale: "ur-PK", currency: "PKR" },
+    si: { locale: "si-LK", currency: "LKR" },
   };
   const { locale: loc, currency } = config[locale];
   return new Intl.NumberFormat(loc, {
